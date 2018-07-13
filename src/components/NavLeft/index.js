@@ -44,7 +44,7 @@ export default class Navleft extends React.Component {
                     <img src={require('../../images/logo-ant.svg')} alt='' />
                     <h1>MoBike MS</h1>
                 </div>
-                <Menu onClick={this.handleClick.bind(this)} defaultSelectedKeys={['0']} mode="vertical" theme={this.state.theme}>
+                <Menu onClick={this.handleClick.bind(this)} defaultSelectedKeys={['/home']} mode="vertical" theme={this.state.theme}>
                     {this.state.menuTreeNode}
                 </Menu>
             </div>
