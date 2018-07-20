@@ -1,10 +1,11 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { Row, Col } from 'antd'
 import utils from '../../utils/utils'
 import Axios from '../../axios'
 import './header.less'
 
-export default class Header extends React.Component {
+class Header extends React.Component {
     constructor() {
         super()
         this.state = {
@@ -26,18 +27,18 @@ export default class Header extends React.Component {
         })
 
     }
-    getWeatherInfo(){
-        let city ='北京'
+    getWeatherInfo() {
+        let city = '北京'
         Axios.jsonp({
-            url:`http://api.map.baidu.com/telematics/v3/weather?location=${city}&output=json&ak=3p49MVra6urFRGOT9s8UBWr2`
-        }).then((res)=>{
+            url: `http://api.map.baidu.com/telematics/v3/weather?location=${city}&output=json&ak=3p49MVra6urFRGOT9s8UBWr2`
+        }).then((res) => {
             const weather = res.results[0].weather_data[0].weather
             const weatherImg = res.results[0].weather_data[0].dayPictureUrl
             this.setState({
                 weather,
                 weatherImg
             })
-        }).catch((err)=>{
+        }).catch((err) => {
             console.log(err)
         })
     }
@@ -52,7 +53,7 @@ export default class Header extends React.Component {
                 </Row>
                 <Row className='breadcrumb'>
                     <Col span={4} className='breadcrumb-title'>
-                        首页
+                        {this.props.navTitle}
                     </Col>
                     <Col className='weather'>
                         <span className='date'>{this.state.timer}</span>
@@ -66,3 +67,10 @@ export default class Header extends React.Component {
         )
     }
 }
+
+Header = connect(state => {
+    return {
+        navTitle: state.navTitle
+    }
+}, {})(Header)
+export default Header

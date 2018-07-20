@@ -1,15 +1,14 @@
-module.exports = {
-    redurce
-}
-
-function redurce(state = {}, action) {
+function redurce(state = {navTitle:'首页'}, action) {
+    console.log(action)
     switch (action.type) {
         case 'changeNavTitle':
             return {
                 ...state,
-                navTitle: action.NavTitle
+                navTitle: action.payload.navTitle
             }
         default:
-            break;
+            return state;
     }
 }
+
+module.exports = redurce

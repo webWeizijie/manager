@@ -1,12 +1,14 @@
 import React from 'react'
 import { Menu } from 'antd';
+import { connect } from 'react-redux'
+import { changeNavTitle } from '../../redux/action'
 import { Route, Link } from 'react-router-dom'
 import MenuConfig from '../../config/menuConfig'
 import './NavLeft.less'
 const SubMenu = Menu.SubMenu;
 
 
-export default class Navleft extends React.Component {
+class Navleft extends React.Component {
     constructor() {
         super()
         this.state = {
@@ -24,7 +26,7 @@ export default class Navleft extends React.Component {
                     </SubMenu>
                 )
             } else {
-                return <Menu.Item key={item.key}><Link to={'/admin' + item.key}>{item.title}</Link></Menu.Item>
+                return <Menu.Item key={item.key} data-name={item.title}><Link to={'/admin' + item.key}>{item.title}</Link></Menu.Item>
             }
         })
     }
@@ -35,7 +37,8 @@ export default class Navleft extends React.Component {
         })
     }
     handleClick(e) {
-        console.log(e, 'target')
+        const navTitle = e.item.props['data-name']
+        this.props.changeNavTitle(navTitle)
     }
     render() {
         return (
@@ -51,3 +54,9 @@ export default class Navleft extends React.Component {
         )
     }
 }
+
+Navleft = connect(null,{
+    changeNavTitle
+})(Navleft)
+
+export default Navleft

@@ -1,15 +1,14 @@
-module.exports = {
-    redurce
+
+
+function changeNavTitle(navTitle){
+    return {
+        type:'changeNavTitle',
+        payload:{
+            navTitle:navTitle
+        }
+    }
 }
 
-function redurce(state = {}, action) {
-    switch (action.type) {
-        case 'changeNavTitle':
-            return {
-                ...state,
-                navTitle: action.NavTitle
-            }
-        default:
-            break;
-    }
+module.exports = {
+    changeNavTitle
 }
