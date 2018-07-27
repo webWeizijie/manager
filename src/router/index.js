@@ -13,7 +13,10 @@ import Gallery from '../pages/Ui/gallery'
 import LoginUI from '../pages/Form/login'
 import Regisiter from '../pages/Form/Regisiter'
 import Nomatch from '../pages/nomatch'
-
+import BasicTable from '../pages/table/basicTable'
+import HighTable from '../pages/table/highTable'
+import RichText from '../pages/rich/index'
+import City from '../pages/city/index'
 
 export default class Router extends React.Component {
     render() {
@@ -33,7 +36,11 @@ export default class Router extends React.Component {
                                 <Route path='/admin/ui/gallery' component={Gallery}></Route>
                                 <Route path='/admin/form/login' component={LoginUI}></Route>
                                 <Route path='/admin/form/reg' component={Regisiter}></Route>
-                                
+                                <Route path='/admin/table/basic' component={BasicTable} />
+                                <Route path='/admin/table/high' component={HighTable} />
+                                <Route path='/admin/rich' component={RichText} />
+                                <Route path='/admin/city' component={City} />
+
                                 <Route component={Nomatch}></Route>
                             </Switch>
                         </Admin>
