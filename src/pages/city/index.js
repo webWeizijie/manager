@@ -21,13 +21,14 @@ export default class City extends React.Component{
     requestList = ()=>{
         let _this = this;
         axios.ajax({
-            url: '/open_city',
+            url: 'https://www.easy-mock.com/mock/5b5682d249fe496f1b579773/manager/open_city',
             data:{
                 params:{
                     page:this.params.page
                 }
             }
         }).then((res)=>{
+           console.log(res)
             let list = res.result.item_list.map((item, index) => {
                 item.key = index;
                 return item;
@@ -53,7 +54,7 @@ export default class City extends React.Component{
         let cityInfo = this.cityForm.props.form.getFieldsValue();
         console.log(cityInfo);
         axios.ajax({
-            url:'/city/open',
+            url:'https://www.easy-mock.com/mock/5b5682d249fe496f1b579773/manager/open',
             data:{
                 params:cityInfo
             }

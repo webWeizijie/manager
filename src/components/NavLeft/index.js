@@ -26,7 +26,7 @@ class Navleft extends React.Component {
                     </SubMenu>
                 )
             } else {
-                return <Menu.Item key={item.key} data-name={item.title}><Link to={'/admin' + item.key}>{item.title}</Link></Menu.Item>
+                return <Menu.Item key={item.key} data-name={item.title}><Link to={item.key}>{item.title}</Link></Menu.Item>
             }
         })
     }

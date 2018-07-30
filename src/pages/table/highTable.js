@@ -18,7 +18,7 @@ export default class BasicTable extends React.Component {
     request = () => {
         let _this = this;
         axios.ajax({
-            url: '/table/high/list',
+            url: 'https://www.easy-mock.com/mock/5a7278e28d0c633b9c4adbd7/api/table/high/list',
             data: {
                 params: {
                     page: this.params.page

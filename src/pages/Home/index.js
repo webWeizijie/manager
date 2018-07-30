@@ -1,4 +1,4 @@
-import React from 'C:/Users/user/AppData/Local/Microsoft/TypeScript/2.9/node_modules/@types/react'
+import React from 'react'
 import './Home.less'
 export default class Home extends React.Component{
     render(){
